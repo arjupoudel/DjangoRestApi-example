@@ -2,9 +2,11 @@ from . import views
 from django.urls import path, include
 from rest_framework import routers
 
-routers = routers.DefaultRouter()
-routers.register('languages', views.LanguageView)
+router = routers.DefaultRouter()
+router.register('languages', views.LanguageView)
+router.register('paradigm', views.ParadigmView)
+router.register('programmer', views.ProgrammerView)
 
 urlpatterns =[
-    path('', include(routers.urls))
+    path('', include(router.urls))
 ]
